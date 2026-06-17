@@ -832,31 +832,46 @@ function resetDeck() {
 }
 
 function copyDeckKebutuhan() {
-    const deckLabel = document.getElementById('deckLabelDeck').textContent;
-    const panjangBatangDeck = deckLabel.match(/\((\d+m)\)/)?.[1] || '';
-    const jumlahDeck = document.getElementById('deckJumlahDeck').textContent.replace(' batang', '');
+    try {
+        // 1. Ambil teks Jumlah + Meteran dari HTML
+        const textDeck = document.getElementById('deckJumlahDeck').textContent; 
+        const textBase = document.getElementById('deckJumlahBase').textContent; 
 
-    const baseLabel = document.getElementById('deckLabelBase').textContent;
-    const panjangBatangBase = baseLabel.match(/\((\d+m)\)/)?.[1] || '';
-    const jumlahBaseText = document.getElementById('deckJumlahBase').textContent;
-    const jumlahBase = jumlahBaseText.match(/^(\d+)/)?.[1] || '';
+        // 2. Ambil meterannya menggunakan regex (mencari angka + m, misal: 3m, 4m)
+        const panjangBatangDeck = textDeck.match(/(\d+m)/)?.[1] || '';
+        const panjangBatangBase = textBase.match(/(\d+m)/)?.[1] || '';
 
-    const jumlahJoint = document.getElementById('deckJumlahJoint').textContent.replace(' pcs', '');
-    const jumlahEdge = document.getElementById('deckJumlahEdge').textContent.replace(' pcs', '');
+        // 3. Ambil hanya angka jumlah batangnya saja (angka paling depan)
+        const jumlahDeck = textDeck.match(/^\d+/)?.[0] || '0';
+        const jumlahBase = textBase.match(/^\d+/)?.[0] || '0';
 
-    const panjang = document.getElementById('deckPanjang').value;
-    const lebar = document.getElementById('deckLebar').value;
-    const garis = '━━━━━━━━━━━━━━━━━━━━';
+        // 4. Ambil data AKSESORIS (Hanya ambil angkanya saja)
+        const jumlahJoint = document.getElementById('deckJumlahJoint').textContent.match(/\d+/)?.[0] || '0';
+        const jumlahEdge = document.getElementById('deckJumlahEdge').textContent.match(/\d+/)?.[0] || '0';
 
-    let text = '';
-    text += `*KEBUTUHAN DUMA DECK*\n`;
-    text += `*(${panjang}cm x ${lebar}cm)*\n`;
-    text += `- *Deck* ${panjangBatangDeck} → ${jumlahDeck} btg\n`;
-    text += `- *Deck Base* ${panjangBatangBase} → ${jumlahBase} btg\n`;
-    text += `- *Joint Clip* → ${jumlahJoint} pcs\n`;
-    text += `- *Edge Clip* → ${jumlahEdge} pcs\n`;
+        // 5. Ambil Ukuran Input
+        const panjang = document.getElementById('deckPanjang').value;
+        const lebar = document.getElementById('deckLebar').value;
 
-    navigator.clipboard.writeText(text).then(() => {
-        alert("Kebutuhan material berhasil disalin!");
-    });
+        // 6. Susun teks output
+        let text = '';
+        text += `*KEBUTUHAN DUMA DECK*\n`;
+        text += `*(${panjang}cm x ${lebar}cm)*\n`;
+        text += `━━━━━━━━━━━━━━━━━━━━\n`;
+        text += `- *Deck* → ${jumlahDeck} btg ${panjangBatangDeck}\n`;
+        text += `- *Deck Base* → ${jumlahBase} btg ${panjangBatangBase}\n`;
+        text += `- *Joint Clip* → ${jumlahJoint} pcs\n`;
+        text += `- *Edge Clip* → ${jumlahEdge} pcs\n`;
+
+        // 7. Copy ke Clipboard
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Kebutuhan material berhasil disalin!");
+        }).catch(err => {
+            alert("Gagal menyalin: " + err);
+        });
+
+    } catch (error) {
+        alert("Terjadi kesalahan pada kode: " + error.message);
+    }
+
 }
