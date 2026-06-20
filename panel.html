@@ -45,172 +45,12 @@
             margin: 0; padding: 0; transition: all 0.2s;
         }
         .theme-toggle-btn:hover { background: rgba(211,171,131,0.25); }
-        .search-wrap { position: relative; margin-bottom: 6px; }
-        .search-wrap input {
-            width: 100%; padding: 11px 40px 11px 14px;
-            border: 1.5px solid #ccc; border-radius: 8px;
-            font-size: 14px; box-sizing: border-box;
-            background: var(--input-bg, #fff); color: var(--text-color, #222);
-            outline: none; transition: border-color 0.2s;
-        }
-        .search-wrap input:focus { border-color: #0a3530; }
-        .search-icon {
-            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-            font-size: 16px; color: #999; pointer-events: none;
-        }
-        .search-dropdown {
-            position: absolute; top: calc(100% + 4px); left: 0; right: 0;
-            background: var(--card-bg, #fff); border: 1px solid #ddd;
-            border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            z-index: 150; max-height: 260px; overflow-y: auto; display: none;
-        }
-        .search-dropdown.show { display: block; }
-        .search-item {
-            padding: 10px 14px; cursor: pointer; border-bottom: 1px solid #f0f0f0;
-            transition: background 0.15s;
-        }
-        .search-item:last-child { border-bottom: none; }
-        .search-item:hover { background: #f0faf8; }
-        .search-item .item-name { font-size: 13px; font-weight: 600; color: #0a3530; }
-        .search-item .item-name mark { background: #ffe066; border-radius: 2px; padding: 0 1px; font-weight: 700; color: #333; }
-        .search-item .item-code { font-size: 11px; color: #999; margin-top: 1px; }
-        .search-empty { padding: 14px; text-align: center; color: #aaa; font-size: 13px; }
-        .modal-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.45); z-index: 300;
-            align-items: center; justify-content: center;
-        }
-        .modal-overlay.show { display: flex; }
-        .modal {
-            background: var(--card-bg, #fff); border-radius: 12px;
-            padding: 20px; width: 90%; max-width: 380px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-            animation: popIn 0.2s ease;
-        }
-        @keyframes popIn { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .modal h3 { font-size: 14px; color: #0a3530; margin: 0 0 4px; }
-        .modal .modal-sub { font-size: 11px; color: #888; margin-bottom: 14px; }
-        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-        .modal-field label { font-size: 11px; font-weight: 700; color: #555; display: block; margin-bottom: 4px; text-transform: uppercase; }
-        .modal-field input {
-            width: 100%; padding: 9px 10px; border: 1.5px solid #ddd;
-            border-radius: 7px; font-size: 14px; box-sizing: border-box;
-            background: var(--input-bg, #fff); color: var(--text-color, #222);
-            outline: none; transition: border-color 0.2s;
-        }
-        .modal-field input:focus { border-color: #0a3530; }
-        .modal-field .field-hint { font-size: 10px; color: #aaa; margin-top: 3px; }
-        .modal-field .field-hint.disc { color: #e74c3c; }
-        .modal-actions { display: flex; gap: 8px; }
-        .modal-actions button { flex: 1; padding: 10px; border: none; border-radius: 7px; font-size: 13px; font-weight: 700; cursor: pointer; }
-        .btn-batal { background: #f0f0f0; color: #666; }
-        .btn-tambah { background: #0a3530; color: white; }
-        .btn-batal:hover { background: #e0e0e0; }
-        .btn-tambah:hover { background: #1a4a45; }
-        .list-wrap { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-bottom: 14px; margin-top: 16px; }
-        .list-header { display: none; }
-        .list-item {
-            padding: 10px 12px;
-            border-bottom: 1px solid #eee;
-            background: var(--card-bg, #fff);
-            position: relative; transition: background 0.15s;
-            cursor: pointer;
-        }
-        .list-item:last-child { border-bottom: none; border-radius: 0 0 8px 8px; }
-        .list-item:active { background: #f0faf8; }
-        .item-name { font-size: 13px; font-weight: 600; color: var(--text-color,#222); line-height: 1.3; }
-        .item-sub  { font-size: 10px; color: #aaa; margin-top: 1px; }
-        .item-row  { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
-        .item-left { font-size: 11px; color: #666; }
-        .item-left b { color: #0a3530; }
-        .item-right { font-size: 13px; font-weight: 700; color: #0a3530; }
-        .item-gram { font-size: 11px; color: #999; margin-top: 3px; }
-        .col-d { display: none; }
-        @media (min-width: 580px) {
-            .list-header {
-                display: grid;
-                grid-template-columns: 1fr 80px 100px 75px 90px;
-                gap: 4px; padding: 8px 12px;
-                background: #0a3530; color: white;
-                border-radius: 8px 8px 0 0; font-size: 10px;
-                font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
-            }
-            .list-header span:not(:first-child) { text-align: right; }
-            .list-item {
-                display: grid;
-                grid-template-columns: 1fr 80px 100px 75px 90px;
-                gap: 4px; padding: 10px 12px;
-                align-items: center;
-            }
-            .item-row  { display: none; }
-            .item-gram { display: none; }
-            .col-d { display: block; text-align: right; font-size: 12px; color: var(--text-color,#222); }
-            .col-d.harga  { font-weight: 600; color: #0a3530; }
-            .col-d.gram   { color: #888; }
-            .col-d.total  { font-weight: 700; color: #0a3530; }
-        }
-        .action-popup-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.45); z-index: 300;
-            align-items: flex-end; justify-content: center;
-        }
-        .action-popup-overlay.show { display: flex; }
-        .action-popup {
-            background: var(--card-bg, #fff); border-radius: 16px 16px 0 0;
-            padding: 16px; width: 100%; max-width: 480px;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-            animation: slideUp 0.2s ease;
-        }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .action-popup-title { font-size: 13px; font-weight: 700; color: #0a3530; margin-bottom: 2px; }
-        .action-popup-sub { font-size: 11px; color: #aaa; margin-bottom: 14px; }
-        .action-popup-btns { display: flex; gap: 8px; }
-        .action-popup-btns button { flex: 1; padding: 11px; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; }
-        .btn-popup-edit { background: #0a3530; color: white; }
-        .btn-popup-edit:hover { background: #1a4a45; }
-        .btn-popup-delete { background: #fde8e8; color: #e74c3c; }
-        .btn-popup-delete:hover { background: #fbd0d0; }
-        .btn-popup-cancel { background: #f0f0f0; color: #666; }
-        .btn-popup-cancel:hover { background: #e0e0e0; }
-        .summary-box {
-            background: var(--card-bg, #fff); border: 1.5px solid #0a3530;
-            border-radius: 10px; padding: 14px;
-        }
-        .summary-row {
-            display: flex; justify-content: space-between;
-            font-size: 13px; padding: 5px 0;
-            border-bottom: 1px dashed #eee;
-        }
-        .summary-row:last-child { border-bottom: none; }
-        .summary-row .s-label { color: #666; }
-        .summary-row .s-val { font-weight: 600; color: #0a3530; }
-        .summary-row.total { border-top: 2px solid #0a3530; margin-top: 4px; padding-top: 8px; }
-        .summary-row.total .s-label { font-weight: 700; font-size: 14px; color: #0a3530; }
-        .summary-row.total .s-val { font-size: 16px; color: #0a3530; }
-        .disc-input-row {
-            display: flex; align-items: center; gap: 8px;
-            margin: 10px 0; padding: 10px 12px;
-            background: #fff9e6; border: 1px solid #f0c040; border-radius: 8px;
-        }
-        .disc-input-row label { font-size: 12px; font-weight: 700; color: #333; white-space: nowrap; }
-        .disc-input-row input {
-            flex: 1; padding: 7px 10px; border: 1.5px solid #f0c040;
-            border-radius: 6px; font-size: 13px; outline: none;
-            background: var(--input-bg, #fff); color: var(--text-color, #222);
-            max-width: 80px;
-        }
-        .disc-input-row .disc-note { font-size: 11px; color: #e74c3c; flex: 1; }
-        .ongkir-box {
-            background: #fff9e6; border: 1px solid #f0c040;
-            border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 12px;
-        }
-        .ongkir-box h4 { color: #0a3530; font-size: 13px; margin-bottom: 8px; }
-        .ongkir-estimasi { font-weight: 700; color: #0a3530; font-size: 13px; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #f0c040; }
-        .ongkir-list { list-style: none; padding: 0; margin: 8px 0 0; }
-        .ongkir-list li { padding: 3px 0; color: #666; border-bottom: 1px dashed #f0c040; font-size: 11px; }
-        .ongkir-list li:last-child { border-bottom: none; }
-        .empty-state { text-align: center; padding: 30px 20px; color: #bbb; font-size: 13px; }
-        .empty-state div { font-size: 32px; margin-bottom: 8px; }
+        [data-theme="light"] .theme-toggle-btn { color: #0a3530; }
+        [data-theme="light"] .page-header-bar { background: rgba(243,245,244,0.85); border-bottom-color: rgba(10,53,48,0.15); }
+        /* Catatan: komponen search/modal/list/summary/ongkir/action-popup
+           sudah punya styling lengkap & theme-aware (dark/light) di css/style.css.
+           Di sini cuma tambahan kecil yang memang khusus halaman ini. */
+        .search-wrap input[type="text"] { padding-right: 40px; }
         @media (min-width: 768px) {
             .container { max-width: 700px; margin: 0 auto; }
         }
@@ -295,8 +135,8 @@
             <h4><center>📦 Estimasi Ongkos Kirim</h4></center>
             <h4><center>CEK LAGI BERAT PRODUK <a href="https://docs.google.com/spreadsheets/d/15Br66hBjT9eeXiLYgtgPdb3N8PC91esHWofg5cOabeY/edit?gid=1822055348#gid=1822055348" target="_blank">DISINI</a> LEBIHIN BERATNYA DARI ESTIMASI </center></h4>
             <div class="summary-row" style="border:none; padding:4px 0; font-size:12px;">
-                <span style="color:#666;">Total Berat</span>
-                <span style="font-weight:600; color:#0a3530;" id="ongkirBerat">-</span>
+                <span style="color:var(--text-soft);">Total Berat</span>
+                <span style="font-weight:600; color:var(--accent);" id="ongkirBerat">-</span>
             </div>
             <div class="ongkir-estimasi">Estimasi Selaras: <span id="ongkirSelaras">-</span></div>
             <ul class="ongkir-list">

@@ -343,6 +343,17 @@ const PRODUK_DATA = [
 // ─── LIS PROFIL ───────────────────────────────────────────────────────────────
 // ==============================================================================
 
+    // FLAT 50 - 3M
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'C2', Panjang: '3M', Isi_Box: 1, Harga_Btg: 51000, Berat_per_m: 0.3 },
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'BT', Panjang: '3M', Isi_Box: 1, Harga_Btg: 51000, Berat_per_m: 0.3 },
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'BW', Panjang: '3M', Isi_Box: 1, Harga_Btg: 51000, Berat_per_m: 0.3 },
+
+    // FLAT 50 - 5M
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'C2', Panjang: '5M', Isi_Box: 1, Harga_Btg: 85000, Berat_per_m: 0.3 },
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'BT', Panjang: '5M', Isi_Box: 1, Harga_Btg: 85000, Berat_per_m: 0.3 },
+    { Kategori: 'LIS PROFIL', Tipe: 'FLAT 50', Warna: 'BW', Panjang: '5M', Isi_Box: 1, Harga_Btg: 85000, Berat_per_m: 0.3 },
+
+
     // CLICK PVC 30MM — 3M & 4M (Acuan: image_ae7f5c.png)
     { Kategori: 'LIS PROFIL', Tipe: 'CLICK PVC 30MM', Warna: 'COKLAT', Panjang: '3M', Isi_Box: 1, Harga_Btg: 33150, Berat_per_m: 0.20 },
     { Kategori: 'LIS PROFIL', Tipe: 'CLICK PVC 30MM', Warna: 'COKLAT', Panjang: '4M', Isi_Box: 1, Harga_Btg: 44200, Berat_per_m: 0.20 },

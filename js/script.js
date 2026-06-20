@@ -523,7 +523,8 @@ window.addEventListener('resize', function() {
 // Theme toggle function (tetap sama)
 function setupThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (!themeToggle) return; // halaman ini pakai tombol #themeToggleBtn, bukan checkbox
+    const savedTheme = localStorage.getItem('caldu-theme') || 'dark';
     
     document.documentElement.setAttribute('data-theme', savedTheme);
     themeToggle.checked = savedTheme === 'dark';
@@ -531,10 +532,10 @@ function setupThemeToggle() {
     themeToggle.addEventListener('change', function() {
         if (this.checked) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('caldu-theme', 'dark');
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+            localStorage.setItem('caldu-theme', 'light');
         }
     });
 }

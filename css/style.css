@@ -541,15 +541,29 @@ button:hover, button:active {
     --input-bg: #ffffff;
     --text-color: #14201d;
     --text-soft: #677871;
-    --border-soft: rgba(10,53,48,0.12);
+    --border-soft: rgba(10,53,48,0.18);
 }
 [data-theme="light"] .grid-bg {
     background-image:
-        linear-gradient(rgba(10,53,48,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,53,48,0.05) 1px, transparent 1px);
+        linear-gradient(rgba(10,53,48,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,53,48,0.07) 1px, transparent 1px);
+}
+[data-theme="light"] .glow-orb {
+    background: radial-gradient(circle, rgba(211,171,131,0.28), transparent 70%);
+}
+[data-theme="light"] .glow-orb.two {
+    background: radial-gradient(circle, rgba(10,53,48,0.12), transparent 70%);
 }
 [data-theme="light"] body { background-color: var(--dark); color: var(--text-color); }
-[data-theme="light"] .container { background: linear-gradient(160deg, #ffffff, #fbfaf8); box-shadow: 0 24px 50px rgba(10,53,48,0.1); }
+[data-theme="light"] .container { background: linear-gradient(160deg, #ffffff, #fbfaf8); box-shadow: 0 24px 50px rgba(10,53,48,0.1); border-color: rgba(10,53,48,0.1); }
+[data-theme="light"] input[type="number"],
+[data-theme="light"] input[type="text"],
+[data-theme="light"] select {
+    border-color: rgba(10,53,48,0.22);
+    box-shadow: 0 1px 3px rgba(10,53,48,0.05);
+}
+[data-theme="light"] input[type="number"]::placeholder,
+[data-theme="light"] input[type="text"]::placeholder { color: #9aa6a0; }
 [data-theme="light"] select option { background: #fff; color: #14201d; }
 [data-theme="light"] .search-dropdown,
 [data-theme="light"] .modal,
