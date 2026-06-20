@@ -73,8 +73,10 @@
 </div>
 
 <div class="container">
-    <p class="description">HANYA UNTUK ESTIMASI HARGA & BERAT JANGAN DI JADIKAN PATOKAN, CEK KEMBALI !!</p><br/>
-    <p class="description"> DWYOR ( Do With Your Own Risk )</p>
+    <div class="logo-container" style="display: grid; place-items: center;">
+        <img src="images/kicau mania.webp" style="width: 150px; height: 150px;" alt="header">
+    </div>
+    <p class="description">HANYA UNTUK ESTIMASI HARGA & BERAT JANGAN DI JADIKAN PATOKAN, CEK KEMBALI !!<br>DWYOR ( Do With Your Own Risk )</p>
 
     <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Cari produk... cth: Modern 100" autocomplete="off" oninput="onSearch(this.value)" onfocus="onSearch(this.value)">
@@ -458,18 +460,7 @@ function resetSemua() {
     renderSummary();
 }
 
-(function() {
-    const saved = localStorage.getItem('caldu-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', saved);
-    const btn = document.getElementById('themeToggleBtn');
-    btn.textContent = saved === 'dark' ? '☀️' : '🌙';
-    btn.addEventListener('click', function() {
-        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('caldu-theme', next);
-        btn.textContent = next === 'dark' ? '☀️' : '🌙';
-    });
-})();
+initThemeToggle('themeToggleBtn');
 
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.keyCode === 85) e.preventDefault();

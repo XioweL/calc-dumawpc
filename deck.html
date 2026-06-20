@@ -86,8 +86,10 @@
 </div>
 
 <div class="container">
-    <p class="description">HANYA UNTUK ESTIMASI HARGA & KEBUTUHAN &mdash; JANGAN DIJADIKAN PATOKAN, CEK KEMBALI!!</p>
-    <p class="description"> DWYOR ( Do With Your Own Risk )</p>
+    <div class="logo-container" style="display: grid; place-items: center;">
+        <img src="images/kicau mania.webp" style="width: 150px; height: 150px;" alt="header">
+    </div>
+    <p class="description">HANYA UNTUK ESTIMASI HARGA & KEBUTUHAN &mdash; JANGAN DIJADIKAN PATOKAN, CEK KEMBALI!!<br>DWYOR ( Do With Your Own Risk )</p>
 
     <div class="form-group">
         <label for="deckPanjang">Panjang Area (cm):</label>
@@ -192,20 +194,10 @@
     </p>
 </div>
 
+<script src="./js/common.js"></script>
 <script src="./js/script.js"></script>
 <script>
-(function() {
-    const saved = localStorage.getItem('caldu-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', saved);
-    const btn = document.getElementById('themeToggleBtn');
-    btn.textContent = saved === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
-    btn.addEventListener('click', function() {
-        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('caldu-theme', next);
-        btn.textContent = next === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
-    });
-})();
+initThemeToggle('themeToggleBtn');
 
 document.addEventListener('DOMContentLoaded', function() {
     ['deckPanjang','deckLebar','deckArah','deckDiskon'].forEach(function(id) {

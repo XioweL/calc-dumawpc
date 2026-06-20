@@ -23,6 +23,12 @@
             --light: #f5f7f9;
             --border: #2a2a2a;
         }
+
+        [data-theme="light"] {
+            --dark: #f3f5f4;
+            --light: #14201d;
+            --border: #d8dcd9;
+        }
         
         body {
             font-family: 'Work Sans', sans-serif;
@@ -101,6 +107,26 @@
             letter-spacing: 3px;
             margin-top: 2px;
         }
+
+        [data-theme="light"] .logo-text p { color: #677871; }
+
+        .theme-toggle-btn {
+            background: rgba(211,171,131,0.12);
+            border: 1px solid rgba(211,171,131,0.35);
+            color: var(--accent);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .theme-toggle-btn:hover { background: rgba(211,171,131,0.25); }
+        [data-theme="light"] .theme-toggle-btn { color: var(--primary); }
     
         
         /* Hero */
@@ -128,7 +154,9 @@
             margin: 0 auto;
             line-height: 1.6;
         }
-        
+
+        [data-theme="light"] .hero p { color: #677871; }
+
         /* Cards Grid */
         .cards-grid {
             display: grid;
@@ -149,6 +177,11 @@
             text-decoration: none;
             color: inherit;
             display: block;
+        }
+
+        [data-theme="light"] .card {
+            background: linear-gradient(135deg, #ffffff, #f3f0ec);
+            box-shadow: 0 8px 24px rgba(10,53,48,0.06);
         }
         
         .card::before {
@@ -199,6 +232,8 @@
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
+        [data-theme="light"] .card p { color: #5b6660; }
         
         .card-arrow {
             font-family: 'JetBrains Mono', monospace;
@@ -226,6 +261,8 @@
             color: #666;
             font-size: 14px;
         }
+
+        [data-theme="light"] footer p { color: #677871; }
         
         footer a {
             color: var(--accent);
@@ -260,21 +297,22 @@
                 <img src="images/kicau mania.webp" alt="Duma Door" class="logo-img">
                 <div class="logo-text">
                     <h1>CALDU</h1>
-                    <p>Estimator Tools</p>
+                    <p>Calculator Duma WPC</p>
                 </div>
             </div>
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark Mode">🌙</button>
         </header>
         
         <section class="hero">
             <h2>SAYA AKAN LAWAN</h2>
-            <p>Platform estimasi harga dan berat produk Duma WPC.<br> Naikan Gaji Marketing Limandara.</p>
+            <p>Inna ma'al usri yusro (إِنَّ مَعَ الْعُسْرِ يُسْرًا) <br>"Sesungguhnya beserta kesulitan itu ada CALDU" </p>
         </section>
         
         <section class="cards-grid">
             <a href="door.html" class="card">
                 <div class="card-icon">🚪</div>
                 <h3>Duma Door</h3>
-                <p>Kalkulasi harga pintu, kusen, finishing, dan add-ons dengan estimasi akurat.</p>
+                <p>Kalkulasi harga pintu, kusen, finishing, dan add-ons.</p>
                 <span class="card-arrow">→ Mulai Hitung</span>
             </a>
             
@@ -287,7 +325,7 @@
             
             <a href="panel.html" class="card">
                 <div class="card-icon">📦</div>
-                <h3>Duma Panel</h3>
+                <h3>Duma WPC</h3>
                 <p>Estimasi harga dan berat produk panel berdasarkan tipe, warna, dan jumlah batang.</p>
                 <span class="card-arrow">→ Mulai Hitung</span>
             </a>
@@ -311,5 +349,7 @@
             <p>© 2026 <a href="https://github.com/xiowel" target="_blank" rel="noopener noreferrer">XioweL</a>. All Rights Reserved.</p>
         </footer>
     </div>
+    <script src="js/common.js"></script>
+    <script>initThemeToggle('themeToggleBtn');</script>
 </body>
 </html>
